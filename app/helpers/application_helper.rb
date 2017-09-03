@@ -16,4 +16,8 @@ module ApplicationHelper
       content_tag(:p, greeting, class: "source-greeting") 
     end
   end
+
+  def copyright_generator
+    WebmoveViewTool::Renderer.copyright("Anthony Candaele", "All rights reserved")
+  end
 end

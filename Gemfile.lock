@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/acandael/webmove_view_tool
+  revision: 3e4b56f31f9b2c2d1d2537cdca2e015006bc33a3
+  specs:
+    webmove_view_tool (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -205,6 +211,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  webmove_view_tool!
 
 BUNDLED WITH
    1.15.3
