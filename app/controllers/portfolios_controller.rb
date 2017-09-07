@@ -4,7 +4,7 @@ class PortfoliosController < ApplicationController
   access all: [:show, :index, :angular], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
 
   def index
-    @portfolio_items = Portfolio.all
+    @portfolio_items = Portfolio.by_position
   end
 
   def angular
@@ -20,9 +20,9 @@ class PortfoliosController < ApplicationController
     @portfolio_item = Portfolio.new(portfolio_params)
 
     if @portfolio_item.save
-      redirect_to portfolios_path, notice: 'Portfolio item was successfully created.' 
+      redirect_to portfolios_path, notice: 'Portfolio item was successfully created.'
     else
-      render :new 
+      render :new
     end
   end
 
@@ -32,7 +32,7 @@ class PortfoliosController < ApplicationController
 
   def update
     if @portfolio_item.update(portfolio_params)
-      redirect_to portfolios_path, notice: 'The record was successfully updated.' 
+      redirect_to portfolios_path, notice: 'The record was successfully updated.'
     else
       render :edit
     end
@@ -53,9 +53,9 @@ class PortfoliosController < ApplicationController
   private
 
   def portfolio_params
-    params.require(:portfolio).permit(:title, 
-                                      :subtitle, 
-                                      :body, 
+    params.require(:portfolio).permit(:title,
+                                      :subtitle,
+                                      :body,
                                       technologies_attributes: [:name]
                                      )
   end
